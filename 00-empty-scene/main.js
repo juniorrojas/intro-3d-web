@@ -11,6 +11,7 @@ function init() {
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(width, height);
 	document.body.appendChild(renderer.domElement);
+	renderer.render(scene, camera);
 }
 
 init();
