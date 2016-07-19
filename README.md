@@ -1,4 +1,4 @@
-Intro to 3D graphics on the web with three.js
+Intro to 3D graphics in the browser with three.js
 =====
 
 0. [Empty scene] (https://github.com/juniorrojas/intro-3d-web/tree/master/00-empty-scene)
