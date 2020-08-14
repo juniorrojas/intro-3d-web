@@ -2,7 +2,7 @@ function init() {
   const width = 500;
   const height = 400;
 
-  const scene = window.scene = new THREE.Scene();
+  window.scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, width / height, 1, 10000);
 
   const renderer = new THREE.WebGLRenderer();
