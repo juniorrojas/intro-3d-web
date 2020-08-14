@@ -1,6 +1,6 @@
-06-experimenting
-======
-We will make a more complex animated scene with what we have learned.
+# 06-experimenting
+
+More objects and more animations.
 
 [Live demo](https://juniorrojas.github.io/intro-3d-web/06-experimenting)
 
