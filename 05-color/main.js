@@ -1,33 +1,26 @@
-var scene;
-var camera;
-var renderer;
-var box;
-var light;
-var blendSign;
-
 function init() {
-	scene = new THREE.Scene();
-	camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
+	window.scene = new THREE.Scene();
+	window.camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
 
-	renderer = new THREE.WebGLRenderer();
-	var canvas = renderer.domElement;
+	window.renderer = new THREE.WebGLRenderer();
+	const canvas = renderer.domElement;
 	document.body.appendChild(canvas);
 
-	box = addBox();
-	light = addLight();
-	blendSign = 1;
+	window.box = addBox();
+	addLight();
+	window.blendSign = 1;
 
-	window.addEventListener("resize", window_onResize);
-	window_onResize();
+	window.addEventListener("resize", onWindowResize);
+	onWindowResize();
 	renderLoop();
 }
 
 function addBox() {
-	var geometry = new THREE.BoxGeometry(30, 30, 30);
-	var material = new THREE.MeshPhongMaterial({
+	const geometry = new THREE.BoxGeometry(30, 30, 30);
+	const material = new THREE.MeshPhongMaterial({
 		color: 0xff0000
 	});
-	var mesh = new THREE.Mesh(geometry, material);
+	const mesh = new THREE.Mesh(geometry, material);
 	mesh.position.z = -100;
 	mesh.rotation.y = 1;
 	scene.add(mesh);
@@ -35,13 +28,13 @@ function addBox() {
 }
 
 function addLight() {
-	var light = new THREE.PointLight(0xffffff, 1, 0);
+	const light = new THREE.PointLight(0xffffff, 1, 0);
 	light.position.set(50, 0, 0);
 	scene.add(light);
 	return light;
 }
 
-function window_onResize() {
+function onWindowResize() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
