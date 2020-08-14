@@ -25,6 +25,9 @@ function addBox() {
 }
 
 function onWindowResize() {
+  const scene = window.scene;
+  const renderer = window.renderer;
+  const camera = window.camera;
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
