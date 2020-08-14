@@ -1,6 +1,6 @@
-02-full-window
-======
-We will add some CSS and JavaScript to make our graphics adaptable to the size of the window.
+# 02-full-window
+
+The renderer should adapt to the window size.
 
 [Live demo](https://juniorrojas.github.io/intro-3d-web/02-full-window)
 
