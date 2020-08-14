@@ -4,4 +4,4 @@ Basic HTML page with an empty scene using three.js. We should see a black rectan
 
 [Live demo](https://juniorrojas.github.io/intro-3d-web/00-empty-scene)
 
-![screenshot](media/empty-scene.png)
+![screenshot](readme-media/screenshot.png)
