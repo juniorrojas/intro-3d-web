@@ -1,8 +1,8 @@
 function init() {
-  window.scene = new THREE.Scene();
-  window.camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
+  const scene = window.scene = new THREE.Scene();
+  const camera = window.camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
 
-  window.renderer = new THREE.WebGLRenderer();
+  const renderer = window.renderer = new THREE.WebGLRenderer();
   const canvas = renderer.domElement;
   document.body.appendChild(canvas);
 
@@ -13,6 +13,7 @@ function init() {
 }
 
 function addBox() {
+  const scene = window.scene;
   const geometry = new THREE.BoxGeometry(30, 30, 30);
   const material = new THREE.MeshBasicMaterial({
     color: 0xff0000,

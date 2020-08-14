@@ -15,6 +15,7 @@ function init() {
 }
 
 function addBox() {
+  const scene = window.scene;
   const geometry = new THREE.BoxGeometry(30, 30, 30);
   const material = new THREE.MeshBasicMaterial({
     color: 0xff0000,
