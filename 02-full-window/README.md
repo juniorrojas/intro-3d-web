@@ -4,4 +4,4 @@ The renderer should adapt to the window size.
 
 [Live demo](https://juniorrojas.github.io/intro-3d-web/02-full-window)
 
-![screenshot](readme-media/full-window.gif)
+![](media/anim.gif)

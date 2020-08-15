@@ -1,5 +1,7 @@
 # Intro to 3D graphics in the browser with three.js
 
+![](06-experimenting/media/anim.gif)
+
 - [00 - Empty scene](https://github.com/juniorrojas/intro-3d-web/tree/master/00-empty-scene)
 - [01 - Box](https://github.com/juniorrojas/intro-3d-web/tree/master/01-box)
 - [02 - Full window](https://github.com/juniorrojas/intro-3d-web/tree/master/02-full-window)

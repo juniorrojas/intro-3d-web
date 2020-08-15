@@ -1,7 +1,7 @@
 # 00-empty-scene
 
-Basic HTML page with an empty scene using three.js. We should see a black rectangle.
+Basic HTML page with an empty scene using three.js.
 
 [Live demo](https://juniorrojas.github.io/intro-3d-web/00-empty-scene)
 
-![screenshot](readme-media/screenshot.png)
+![](media/screenshot.png)
