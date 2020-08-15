@@ -1,17 +1,21 @@
 function init() {
-  window.scene = new THREE.Scene();
+  const scene = window.scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x31403b);
   window.camera = new THREE.PerspectiveCamera(75, 1, 1, 10000);
 
   window.renderer = new THREE.WebGLRenderer();
   const canvas = renderer.domElement;
   document.body.appendChild(canvas);
 
+  window.rgb0 = [0.47, 0.74, 0.01];
+  window.rgb1 = [0.64, 0.85, 0.51];
   window.objects = [];
   for (let i = 0; i < 100; i++) {
     addObject();
   }
 
-  addLight();
+  addPointLight();
+  addAmbientLight();
 
   window.addEventListener("resize", onWindowResize);
   onWindowResize();
@@ -51,19 +55,26 @@ function resetMesh(mesh) {
   mesh.orbitRadius = 10 + Math.random() * 300;
   mesh.orbitSpeed = 0.01 + Math.random() * Math.PI / 30;
   mesh.verticalSpeed = 1 + Math.random() * 5;
-  mesh.material.color.setRGB(Math.random(), Math.random(), Math.random());
-  mesh.blendSpeed = 0.1;
-  mesh.blendSign = 1;
-  const r = Math.random();
-  if (r < 1 / 3) mesh.blendChannel = "r";
-  else if (r < 2 / 3) mesh.blendChannel = "g";
-  else mesh.blendChannel = "b";
+  
+  const rgb0 = window.rgb0;
+  const rgb1 = window.rgb1;
+  mesh.material.color.setRGB(
+    rgb0[0] + (rgb1[0] - rgb0[0]) * Math.random(),
+    rgb0[1] + (rgb1[1] - rgb0[1]) * Math.random(),
+    rgb0[2] + (rgb1[2] - rgb0[2]) * Math.random()
+  );
 }
 
-function addLight() {
+function addPointLight() {
   const scene = window.scene;
-  const light = new THREE.PointLight(0xffffff, 1, 0);
+  const light = new THREE.PointLight(0xffffff, 0.5, 0);
   light.position.set(50, 0, 0);
+  scene.add(light);
+  return light;
+}
+
+function addAmbientLight() {
+  const light = new THREE.AmbientLight(0xaaaaaa);
   scene.add(light);
   return light;
 }
@@ -92,18 +103,7 @@ function renderLoop() {
     object.position.x = Math.cos(object.orbitT) * object.orbitRadius;
     object.position.z = -500 + Math.sin(object.orbitT) * object.orbitRadius;
 
-    const blendChannel = object.blendChannel;
-    object.material.color[blendChannel] += object.blendSign * object.blendSpeed;
-    if (object.material.color[blendChannel] > 1) {
-      object.material.color[blendChannel] = 1;
-      object.blendSign *= -1;
-    } else
-    if (object.material.color[blendChannel] < 0) {
-      object.material.color[blendChannel] = 0;
-      object.blendSign *= -1;
-    }
-
-    if (object.position.y > 300) {
+    if (object.position.y > 400) {
       resetMesh(object);
     }
   });
